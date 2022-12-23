@@ -2,7 +2,7 @@
 FROM node:18.12
 
 # Set the Working Directory
-WORKDIR /app
+WORKDIR /
 
 # Copy the Package Descriptor
 COPY package*.json ./
