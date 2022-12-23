@@ -13,6 +13,7 @@ RUN npm install
 # Copy all file from source to workdir
 COPY . .
 
+# Build
 RUN npm run build
 
 # Expose the Port used by Api Gateway
