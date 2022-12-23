@@ -17,4 +17,4 @@ COPY . ./
 EXPOSE 26799
 
 # Run the serve
-CMD ["node", "index.js"]
+CMD ["node", "main.js"]
