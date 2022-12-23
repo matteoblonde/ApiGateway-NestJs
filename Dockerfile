@@ -2,7 +2,7 @@
 FROM node:18.12
 
 # Set the Working Directory
-WORKDIR /
+WORKDIR /src/app
 
 # Copy the Package Descriptor
 COPY package*.json ./
@@ -11,10 +11,12 @@ COPY package*.json ./
 RUN npm install
 
 # Copy all file from source to workdir
-COPY . ./
+#COPY . ./
+
+RUN npm run build
 
 # Expose the Port used by Api Gateway
 EXPOSE 26799
 
 # Run the serve
-CMD ["node", "main.js"]
+CMD ["node", "dist/main"]
