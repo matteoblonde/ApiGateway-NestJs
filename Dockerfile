@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy all file from source to workdir
-#COPY . ./
+COPY . .
 
 RUN npm run build
 
