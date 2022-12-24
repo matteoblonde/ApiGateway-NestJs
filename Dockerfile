@@ -5,6 +5,9 @@ FROM node:18.12
 ARG HOST=${HOST}
 ENV HOST=${HOST}
 
+ARG USERNAME=${USERNAME}
+ENV USERNAME=${USERNAME}
+
 # Set the Working Directory
 WORKDIR /src/app
 
