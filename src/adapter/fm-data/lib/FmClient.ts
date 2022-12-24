@@ -158,10 +158,12 @@ export default class FmClient {
       /** Make the axios request using provided config */
       const response = await axios({
         baseURL: this.layoutUrl,
-        ...config,
         method: "POST",
+        ...config,
         headers: {
           Authorization: `Bearer ${await this.getAuthToken()}`,
+          ContentType: 'application/json',
+          'accept-econding': '*',
           ...config.headers
         }
       });
@@ -175,10 +177,27 @@ export default class FmClient {
   }
 
 
+  /**
+   * Find Request Method
+   * Perform a find query over a Layout
+   * @param config
+   */
   public find<Response>(config: Omit<AxiosRequestConfig, 'baseURL' | 'url'>): Promise<FmGetRecordsResponse<Response>> {
     return this.request<FmGetRecordsResponse<Response>>({
       ...config,
       url: '/_find'
+    });
+  }
+
+
+  /**
+   * Get Request Method
+   * @param config
+   */
+  public get<Response>(config: Omit<AxiosRequestConfig, 'baseURL' | 'url'>): Promise<FmGetRecordsResponse<Response>> {
+    return this.request<FmGetRecordsResponse<Response>>({
+      ...config,
+      url: '/records'
     });
   }
 
