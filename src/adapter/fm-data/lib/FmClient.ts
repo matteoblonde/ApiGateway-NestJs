@@ -89,7 +89,7 @@ export default class FmClient {
    * Public Getters
    * -------- */
   public get databaseUrl(): string {
-    return `${this._host}/fmi/data/v${this._version}/databases/${this._database}`;
+    return `https://${this._host}/fmi/data/v${this._version}/databases/${this._database}`;
   }
 
 
