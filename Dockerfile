@@ -1,6 +1,10 @@
 # Create a primary Node Image to build the Production App
 FROM node:18.12
 
+# Setting Env Variables
+ARG HOST=${HOST}
+ENV HOST=${HOST}
+
 # Set the Working Directory
 WORKDIR /src/app
 

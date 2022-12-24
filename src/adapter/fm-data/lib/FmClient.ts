@@ -20,6 +20,8 @@ export default class FmClient {
 
   private static readonly FM_TOKEN_EXP_TIME_MIN: number = 14;
 
+  private static readonly API_VERSION: string = '1';
+
 
   /* --------
    * Client Instance Pool
@@ -56,7 +58,7 @@ export default class FmClient {
 
   private _layout: string | undefined;
 
-  private _version = '1';
+  private _version = FmClient.API_VERSION;
 
 
   /* --------
@@ -79,6 +81,7 @@ export default class FmClient {
     this._database = database;
     this._username = username;
     this._password = password;
+    console.log(process.env.HOST);
   }
 
 
@@ -163,7 +166,6 @@ export default class FmClient {
         headers: {
           Authorization: `Bearer ${await this.getAuthToken()}`,
           ContentType: 'application/json',
-          'accept-econding': '*',
           ...config.headers
         }
       });

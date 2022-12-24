@@ -1,5 +1,4 @@
 import { Injectable } from "@nestjs/common";
-import { single } from "rxjs";
 
 import { DATABASES } from "./constants";
 import { User } from "./interfaces/UserData/User";
