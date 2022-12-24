@@ -2,11 +2,21 @@
 FROM node:18.12
 
 # Setting Env Variables
+# HOSTNAME
 ARG HOST=${HOST}
 ENV HOST=${HOST}
 
+# Filemaker Database Login Username
 ARG USERNAME=${USERNAME}
 ENV USERNAME=${USERNAME}
+
+# Filemaker Database Login Password
+ARG PASSWORD=${PASSWORD}
+ENV PASSWORD=${PASSWORD}
+
+# Filemaker API Version
+ARG API_VERSION=${API_VERSION}
+ENV API_VERSION=${API_VERSION}
 
 # Set the Working Directory
 WORKDIR /src/app

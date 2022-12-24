@@ -12,15 +12,15 @@ export default class FmClient {
   /* --------
    * Default Data
    * -------- */
-  private static readonly FM_ADMIN_USER: string = 'UTENTEWEB';
+  private static readonly FM_ADMIN_USER: string = process.env.USERNAME;
 
-  private static readonly FM_ADMIN_PASSWORD: string = '5U1U3RDH';
+  private static readonly FM_ADMIN_PASSWORD: string = process.env.PASSWORD;
 
-  private static readonly FM_API_BASE_URL: string = 'https://serverfm.sandeza.com';
+  private static readonly FM_API_BASE_URL: string = process.env.HOST;
 
   private static readonly FM_TOKEN_EXP_TIME_MIN: number = 14;
 
-  private static readonly API_VERSION: string = '1';
+  private static readonly API_VERSION: string = process.env.API_VERSION;
 
 
   /* --------
