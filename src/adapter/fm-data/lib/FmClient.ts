@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { AxiosRequestConfig } from 'axios';
 
-import type { FmGetRecordsResponse } from '../interfaces/generics';
+import type { FmCreateRecordResponse, FmGetRecordsResponse } from "../interfaces/generics";
 import type { FmSessionResponse } from '../interfaces/Auth';
 import { encodeToBase64 } from '../../../utils';
 
@@ -12,7 +12,18 @@ export default class FmClient {
   /* --------
    * Default Data
    * -------- */
-  private static readonly FM_ADMIN_USER: string = process.env.USERNAME;
+  private static readonly FM_ADMIN_USER: string = 'UTENTEWEB';
+
+  private static readonly FM_ADMIN_PASSWORD: string = '5U1U3RDH';
+
+  private static readonly FM_API_BASE_URL: string = 'serverfm.sandeza.com';
+
+  private static readonly FM_TOKEN_EXP_TIME_MIN: number = 14;
+
+  private static readonly API_VERSION: string = '1';
+
+  // Env Variables for Deployment
+  /*private static readonly FM_ADMIN_USER: string = process.env.USERNAME;
 
   private static readonly FM_ADMIN_PASSWORD: string = process.env.PASSWORD;
 
@@ -20,7 +31,7 @@ export default class FmClient {
 
   private static readonly FM_TOKEN_EXP_TIME_MIN: number = 14;
 
-  private static readonly API_VERSION: string = process.env.API_VERSION;
+  private static readonly API_VERSION: string = process.env.API_VERSION;*/
 
 
   /* --------
@@ -81,7 +92,6 @@ export default class FmClient {
     this._database = database;
     this._username = username;
     this._password = password;
-    console.log(process.env.HOST);
   }
 
 
@@ -198,6 +208,18 @@ export default class FmClient {
    */
   public get<Response>(config: Omit<AxiosRequestConfig, 'baseURL' | 'url'>): Promise<FmGetRecordsResponse<Response>> {
     return this.request<FmGetRecordsResponse<Response>>({
+      ...config,
+      url: '/records'
+    });
+  }
+
+  /**
+   * Create Record Request Method
+   * Create a new Record
+   * @param config
+   */
+  public create(config: Omit<AxiosRequestConfig, 'baseURL' | 'url'>): Promise<FmCreateRecordResponse> {
+    return this.request<FmCreateRecordResponse>({
       ...config,
       url: '/records'
     });
