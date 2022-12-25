@@ -13,7 +13,7 @@ export type FmUpdateRecordResponse = FmBaseResponse<UpdateRecordResponseData>;
 /* --------
  * Generics Type Definition
  * -------- */
-interface CreateRecordResponseData {
+interface CreateRecordResponseData<> {
   recordId: string;
 
   modId: string;

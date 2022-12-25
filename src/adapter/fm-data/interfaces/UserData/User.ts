@@ -1,10 +1,6 @@
-import type { FmBaseResponse } from '../generics';
-
-
-export type FmSessionResponse = FmBaseResponse<{ token: string }>;
 
 /* --------
- * Base Response
+ * User
  * -------- */
 export interface User {
   IdUtente: string;

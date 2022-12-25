@@ -14,7 +14,7 @@ export class UserDataService {
    */
   public async getAllUsers(): Promise<User[]> {
 
-    /** Create the client */
+    /** Create FM client */
     const client = FmClient.forDatabase(DATABASES.USER_DATA).layout('UtentiDto');
 
     const allUsersResponse = await client.get<User>({
@@ -35,7 +35,7 @@ export class UserDataService {
    */
   public async getSingleUser(id: string): Promise<User> {
 
-    /** Create the client */
+    /** Create FM client */
     const client = FmClient.forDatabase(DATABASES.USER_DATA).layout('UtentiDto');
 
     const singleUserResponse = await client.find<User>({

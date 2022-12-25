@@ -1,9 +1,8 @@
 import { IsString } from 'class-validator';
 
 
-export class SingleUserDto {
+export class UserDto {
 
   @IsString()
   id!: string;
-
 }

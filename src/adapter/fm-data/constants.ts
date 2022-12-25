@@ -5,5 +5,7 @@ export const DATABASES = {
   ITEMS: 'Items',
   ACCOUNTING_DOCS: 'AccountingDocs',
   OFFERS: 'Offers',
-  ORDERS: 'Orders'
+  ORDERS: 'Orders',
+  INTERVENTIONS: 'Interventions',
+  INSTALLATIONS: 'Installations'
 };

@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post, ValidationPipe } from "@nestjs/common";
 import { UserDataService } from "../../adapter/fm-data/user-data.service";
-import { SingleUserDto } from "./dto/SingleUserDto";
+import { UserDto } from "./dto/UserDto";
 
 
 @Controller('user-data')
@@ -23,10 +23,10 @@ export class UserDataController {
    * Get Single User by ID
    */
   @Post('user')
-  public loginUser(
-    @Body(ValidationPipe) userId: SingleUserDto
+  public getSingleUser(
+    @Body(ValidationPipe) userData: UserDto
   ): Promise<any> {
-    return this.userDataService.getSingleUser(userId.id);
+    return this.userDataService.getSingleUser(userData.id);
   }
 
 }
